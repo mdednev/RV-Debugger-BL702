@@ -28,14 +28,14 @@
 
 const uint16_t ftdi_eeprom_info[] = 
 {
-	0x0800, 0x0403, 0x6010, 0x0500, 0x3280, 0x0000, 0x0200, 0x1096,
-	0x1aa6, 0x0000, 0x0046, 0x0310, 0x004f, 0x0070, 0x0065, 0x006e,
-	0x002d, 0x0045, 0x0043, 0x031a, 0x0055, 0x0053, 0x0042, 0x0020,
-	0x0044, 0x0065, 0x0062, 0x0075, 0x0067, 0x0067, 0x0065, 0x0072,
-	0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 
-	0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 
-	0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 
-	0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x1027 
+	0x0800, 0x0403, 0x6010, 0x0700, 0x2D80, 0x0000, 0x0000, 0x0A9A,
+	0x1CA4, 0x0000, 0x0000, 0x0000, 0x0046, 0x030A, 0x0046, 0x0054,
+	0x0044, 0x0049, 0x031C, 0x0044, 0x0075, 0x0061, 0x006C, 0x0020,
+	0x0052, 0x0053, 0x0032, 0x0033, 0x0032, 0x002D, 0x0048, 0x0053,
+	0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,
+	0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,
+	0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,
+	0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x368D
 };
 
 // const uint16_t ftdi_eeprom_info[] = 
@@ -78,7 +78,7 @@ uint8_t cdc_descriptor[] =
     0x02,                              /* bNumInterfaces */
     0x01,                              /* bConfigurationValue */
     0x00,                              /* iConfiguration */
-    0xa0,                              /* bmAttributes */
+    0x80,                              /* bmAttributes */
     0x2d,                              /* bMaxPower */
 
     ///////////////////////////////////////
@@ -125,7 +125,7 @@ uint8_t cdc_descriptor[] =
     0xff,                          /* bInterfaceClass */
     0xff,                          /* bInterfaceSubClass */
     0xff,                          /* bInterfaceProtocol */
-    0x00,                          /* iInterface */
+    0x02,                          /* iInterface */
 
     ///////////////////////////////////////
     /// endpoint descriptor
@@ -156,67 +156,54 @@ uint8_t cdc_descriptor[] =
     ///////////////////////////////////////
     /// string1 descriptor
     ///////////////////////////////////////
-    0x0E,                       /* bLength */
+    0x0A,                       /* bLength */
     USB_DESCRIPTOR_TYPE_STRING, /* bDescriptorType */
-    'S', 0x00,                  /* wcChar0 */
-    'I', 0x00,                  /* wcChar1 */
-    'P', 0x00,                  /* wcChar2 */
-    'E', 0x00,                  /* wcChar3 */
-	'E', 0x00,                  /* wcChar4 */
-	'D', 0x00,                  /* wcChar5 */
+    'F', 0x00,                  /* wcChar0 */
+    'T', 0x00,                  /* wcChar1 */
+    'D', 0x00,                  /* wcChar2 */
+    'I', 0x00,                  /* wcChar3 */
     ///////////////////////////////////////
     /// string2 descriptor
     ///////////////////////////////////////
     0x1c,                       /* bLength */
     USB_DESCRIPTOR_TYPE_STRING, /* bDescriptorType */
-    'J', 0x00,                  /* wcChar0 */
-    'T', 0x00,                  /* wcChar1 */
-    'A', 0x00,                  /* wcChar2 */
-    'G', 0x00,                  /* wcChar3 */
+    'D', 0x00,                  /* wcChar0 */
+    'u', 0x00,                  /* wcChar1 */
+    'a', 0x00,                  /* wcChar2 */
+    'l', 0x00,                  /* wcChar3 */
     ' ', 0x00,                  /* wcChar4 */
-    'D', 0x00,                  /* wcChar5 */
-    'e', 0x00,                  /* wcChar6 */
-    'b', 0x00,                  /* wcChar7 */
-    'u', 0x00,                  /* wcChar8 */
-    'g', 0x00,                  /* wcChar9 */
-    'g', 0x00,                  /* wcChar10 */
-    'e', 0x00,                  /* wcChar11 */
-    'r', 0x00,                  /* wcChar12 */
+    'R', 0x00,                  /* wcChar5 */
+    'S', 0x00,                  /* wcChar6 */
+    '2', 0x00,                  /* wcChar7 */
+    '3', 0x00,                  /* wcChar8 */
+    '2', 0x00,                  /* wcChar9 */
+    '-', 0x00,                  /* wcChar10 */
+    'H', 0x00,                  /* wcChar11 */
+    'S', 0x00,                  /* wcChar12 */
     ///////////////////////////////////////
     /// string3 descriptor
     ///////////////////////////////////////
-    0x30,                       /* bLength */
+    0x1a,                       /* bLength */
     USB_DESCRIPTOR_TYPE_STRING, /* bDescriptorType */
-    'F', 0x00,                  /* wcChar0 */
-    'a', 0x00,                  /* wcChar1 */
-    'c', 0x00,                  /* wcChar2 */
-    't', 0x00,                  /* wcChar3 */
-    'o', 0x00,                  /* wcChar4 */
-    'r', 0x00,                  /* wcChar5 */
-    'y', 0x00,                  /* wcChar6 */
-    'A', 0x00,                  /* wcChar7 */
-    'I', 0x00,                  /* wcChar8 */
-    'O', 0x00,                  /* wcChar9 */
-    'T', 0x00,                  /* wcChar10 */
-    ' ', 0x00,                  /* wcChar11 */
-    'P', 0x00,                  /* wcChar12 */
-    'r', 0x00,                  /* wcChar13 */
-    'o', 0x00,                  /* wcChar14 */
-    'g', 0x00,                  /* wcChar15 */
-    ' ', 0x00,                  /* wcChar16 */
-    'S', 0x00,                  /* wcChar17 */
-    'e', 0x00,                  /* wcChar18 */
-    'r', 0x00,                  /* wcChar19 */
-    'i', 0x00,                  /* wcChar20 */
-    'a', 0x00,                  /* wcChar21 */
-    'l', 0x00,                  /* wcChar22 */
+    '1', 0x00,                  /* wcChar0 */
+    '3', 0x00,                  /* wcChar1 */
+    '3', 0x00,                  /* wcChar2 */
+    '7', 0x00,                  /* wcChar3 */
+    'd', 0x00,                  /* wcChar4 */
+    '8', 0x00,                  /* wcChar5 */
+    '0', 0x00,                  /* wcChar6 */
+    '1', 0x00,                  /* wcChar7 */
+    '3', 0x00,                  /* wcChar8 */
+    '4', 0x00,                  /* wcChar9 */
+    '7', 0x00,                  /* wcChar10 */
+    'b', 0x00,                  /* wcChar11 */
     ///////////////////////////////////////
     /// device qualifier descriptor
     ///////////////////////////////////////
     0x0a,
     USB_DESCRIPTOR_TYPE_DEVICE_QUALIFIER,
     0x00,
-    0x00,
+    0x02,
     0x00,
     0x00,
     0x00,
